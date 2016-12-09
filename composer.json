@@ -1,0 +1,30 @@
+{
+    "name": "hyn/frontmatter",
+    "description": "Markdown including meta information parsing from frontmatters",
+    "tags": ["frontmatter", "markdown", "yaml", "json", "toml"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniël `Luceos` Klabbers",
+            "email": "daniel+hyn@klabbers.email"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Hyn\\Frontmatter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Hyn\\Frontmatter\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "cebe/markdown": "^1.1",
+        "yosymfony/toml": "^0.3.3",
+        "symfony/yaml": "^3.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
+    }
+}
