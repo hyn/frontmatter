@@ -1,0 +1,33 @@
+language: php
+
+php:
+  - 5.4
+  - 5.5
+  - 5.6
+  - 7.0
+  - 7.1
+  - nightly
+
+# faster builds on new travis setup not using sudo
+sudo: false
+
+# cache composer cache
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: nightly
+
+install:
+  - composer self-update && composer --version
+  - composer install --prefer-dist
+
+script:
+  - vendor/bin/phpunit --verbose --coverage-clover=coverage.clover
+
+after_script:
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
