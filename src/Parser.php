@@ -3,7 +3,6 @@
 namespace Hyn\Frontmatter;
 
 use cebe\markdown\Parser as MarkdownParser;
-use Hyn\Contracts\Frontmatter;
 use Hyn\Frontmatter\Frontmatters\JsonFrontmatter;
 
 class Parser
