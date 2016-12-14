@@ -13,11 +13,6 @@ class Parser
     protected $markdown;
 
     /**
-     * @var array
-     */
-    protected $meta = array();
-
-    /**
      * @var Frontmatter
      */
     protected $frontmatter;
@@ -47,13 +42,17 @@ class Parser
         $frontmatter = $this->getFrontmatter($contents);
 
         if ($frontmatter->hasMeta()) {
-            $this->meta = $frontmatter->getMeta();
+            $meta = $frontmatter->getMeta();
             $contents = $frontmatter->getContents();
         } else {
-            $this->meta = array();
+            $meta = array();
         }
 
-        return $this->markdown->parse($contents);
+        return [
+            'markdown' => $contents,
+            'meta' => $meta,
+            'html' => $this->markdown->parse($contents)
+        ];
     }
 
     /**
@@ -63,13 +62,5 @@ class Parser
     protected function getFrontmatter($contents)
     {
         return $this->frontmatter ? new $this->frontmatter($contents) : new JsonFrontmatter($contents);
-    }
-
-    /**
-     * @return array
-     */
-    public function getMeta()
-    {
-        return $this->meta;
     }
 }

@@ -49,7 +49,7 @@ abstract class TestCase extends Test
      */
     public function can_find_content()
     {
-        $this->assertEquals("<p>content</p>\n", $this->contents);
+        $this->assertEquals("<p>content</p>\n", $this->contents['html']);
     }
 
     /**
@@ -57,6 +57,6 @@ abstract class TestCase extends Test
      */
     public function can_find_meta()
     {
-        $this->assertEquals(basename($this->file), $this->parser->getMeta()['name']);
+        $this->assertEquals(basename($this->file), $this->contents['meta']['name']);
     }
 }
