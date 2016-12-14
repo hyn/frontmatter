@@ -35,7 +35,7 @@ class Parser
 
     /**
      * @param string $contents
-     * @return string
+     * @return array
      */
     public function parse($contents)
     {
