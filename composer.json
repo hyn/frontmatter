@@ -20,11 +20,13 @@
         }
     },
     "require": {
-        "cebe/markdown": "^1.1",
-        "yosymfony/toml": "^0.3.3",
-        "symfony/yaml": "^3.2"
+        "cebe/markdown": "^1.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7"
+    }.
+    "suggest": {
+        "symfony/yaml": "For the YAML frontmatter",
+        "yosymfony/toml": "For the TOML frontmatter"
     }
 }
