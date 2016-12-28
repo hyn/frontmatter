@@ -21,6 +21,7 @@ matrix:
 
 install:
   - composer self-update && composer --version
+  - composer require symfony/yaml yosymfony/toml
   - composer install --prefer-dist
 
 script:
